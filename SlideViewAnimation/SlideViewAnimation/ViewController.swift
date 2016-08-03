@@ -79,8 +79,17 @@ class ViewController: UIViewController {
         views.layer.addAnimation(transition, forKey: nil)
     }
     
+    
+    func getRandomColor() -> UIColor{
+        let randomRed:CGFloat = CGFloat(drand48())
+        let randomGreen:CGFloat = CGFloat(drand48())
+        let randomBlue:CGFloat = CGFloat(drand48())
+        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
+    }
+    
     override func animationDidStop(theAnimation: CAAnimation, finished flag: Bool) {
-        print("animation done")
+        let lightOp: UIColor = getRandomColor()
+        rectView?.backgroundColor = lightOp
     }
 
     override func didReceiveMemoryWarning() {
